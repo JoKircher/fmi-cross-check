@@ -1,5 +1,5 @@
 *
-!.jl
+!*.jl
 !.gitignore
 !.circleci/
 !*.md
