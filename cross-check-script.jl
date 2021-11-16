@@ -5,7 +5,7 @@ using StatsPlots, Plots
 include("cross-check-functions.jl")
 
 # initialize structure
-modeltype = ["cs", "me"]
+modeltype = ["cs"]
 vendors = ["CATIA/R2016x", "Dymola/2019FD01", "DS_FMU_Export_from_Simulink/2.3.0", "FMIToolbox_MATLAB/2.3"]
 system = ""
 

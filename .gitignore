@@ -1,5 +1,6 @@
 *
 !*.jl
+!.github/workflows/main.yml
 !.gitignore
 !.circleci/
 !*.md
