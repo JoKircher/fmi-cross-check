@@ -32,4 +32,4 @@ jobs:
 
      # Build  package
       - name: "run check script"
-        run: julia -e 'using Pkg; Pkg.add("FMI"); cross-check-script.jl'
+        run: julia -e 'using Pkg; Pkg.add("FMI"); Pkg.instantiate()'
