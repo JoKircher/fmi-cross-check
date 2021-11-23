@@ -35,5 +35,5 @@ jobs:
         run: |
             julia --project=. -e  '
             using Pkg
-            Pkg.add(url="https://github.com/ThummeTo/FMI.jl")
+            Pkg.add(url="github.com/ThummeTo/FMI.jl")
             Pkg.instantiate()'
