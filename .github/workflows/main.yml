@@ -33,5 +33,6 @@ jobs:
      # Build  package
       - name: "run check script"
         run: |
-            julia --project=. -e  '
-            using Pkg'
+            julia --project -e  '
+            using Pkg
+            Pkg.add(url="https://github.com/ThummeTo/FMI.jl.git")'
