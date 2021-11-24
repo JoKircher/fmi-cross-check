@@ -35,4 +35,5 @@ jobs:
         run: |
             julia -e  '
             using Pkg
-            Pkg.add(\"FMI\")'
+            Pkg.add(\"FMI\")
+            cross-check-script.jl'
