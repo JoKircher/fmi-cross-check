@@ -35,7 +35,8 @@ jobs:
         run: |
             julia -e  '
             using Pkg
-            Pkg.add(\"FMI\")'
+            Pkg.add(\"FMI\")
+            Pkg.add(\"CSV\")'
             julia crosscheckscript.jl
             
     # Commit and push changes
