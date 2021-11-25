@@ -35,8 +35,8 @@ jobs:
         run: |
             julia -e  '
             using Pkg
-            Pkg.add(\"FMI\")
-            \"cross-check-script.jl\"'
+            Pkg.add(\"FMI\")'
+            julia -e 'cross-check-script.jl'
             
     # Commit and push changes
       - name: "commit and push changes"
