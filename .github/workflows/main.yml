@@ -37,3 +37,11 @@ jobs:
             using Pkg
             Pkg.add(\"FMI\")
             \"cross-check-script.jl\"'
+            
+    # Commit and push changes
+      - name: "commit and push changes"
+        run: |
+          git config --global user.name 'JoKircher'
+          git config --global user.email 'JoKircher@users.noreply.github.com'
+          git commit -am "results of FMI.jl simulations"
+          git push
