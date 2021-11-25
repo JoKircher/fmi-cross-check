@@ -37,7 +37,8 @@ jobs:
             using Pkg
             Pkg.add(\"FMI\")
             Pkg.add(\"CSV\")
-            Pkg.add(\"DataFrames\")'
+            Pkg.add(\"DataFrames\")
+            Pkg.add(\"StatsPlots\")'
             julia crosscheckscript.jl
             
     # Commit and push changes
