@@ -47,5 +47,6 @@ jobs:
         run: |
           git config --global user.name 'JoKircher'
           git config --global user.email 'JoKircher@users.noreply.github.com'
+          git pull
           git commit -am "results of FMI.jl simulations"
           git push
