@@ -49,4 +49,8 @@ jobs:
           git config --global user.email 'JoKircher@users.noreply.github.com'
           git add *
           git commit -m "results of FMI.jl simulations"
-          git push
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ test-cross-check-script }}
