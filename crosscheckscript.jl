@@ -1,6 +1,6 @@
 using FMI
 using CSV, DataFrames
-using StatsPlots, Plots
+using StatsPlots
 
 include("cross-check-functions.jl")
 
@@ -118,7 +118,7 @@ for type in modeltype
                 touch("results/2.0/$type/$system/FMI_jl/v0.1.6/$vendor/$fmuname/passed")
             end
             
-            CSV.write("results/2.0/$type/$system/FMI_jl/v0.1.6/$vendor/$fmuname/$out.csv", df)
+            # CSV.write("results/2.0/$type/$system/FMI_jl/v0.1.6/$vendor/$fmuname/$out.csv", df)
             fmiUnload(fmu)
         end
     end
