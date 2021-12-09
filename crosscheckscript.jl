@@ -13,9 +13,9 @@ system = ""
 # MixtureGases, ControlledTemperature, CoupledClutches
 # [der_p, der_T], [heatCapacitor_T, switch_Controll], [J1_w,J2_w,J3_w,J4_w]
 errorsCATIA = [[0.000005, 0.02, 0.0003], [0.005, 0.06, 1], [0.04, 0.4, 0.2, 0.2, 0.3]]
-# MixtureGases, ControlledTemperature, CoupledClutches
-# [der_p, der_T], [heatCapacitor_T, switch_Controll], [J1_w,J2_w,J3_w,J4_w]
-errorsDymola = [[0.000005, 0.015, 0.0003], [0.005, 0.02, 1], [0.09, 0.4, 0.03, 0.03, 0.08]]
+# MixtureGases, ControlledTemperature, CoupledClutches, fullRobot
+# [der_p, der_T], [heatCapacitor_T, switch_Controll], [J1_w,J2_w,J3_w,J4_w], [axis1_w, axis2_w, axis3_w, axis4_w, axis5_w, axis6_w]
+errorsDymola = [[0.000005, 0.015, 0.0003], [0.005, 0.02, 1], [0.09, 0.4, 0.03, 0.03, 0.08], [1e-3, 1e-3, 1e-3, 1e-3, 1e-3, 1e-3, 1e-3]]
 # BouncingBalls_sf, TriggeredSubsystems_sf, TestModel1_sf, TestModel2_sf
 # [Ball1_pos,Ball2_pos,Ball1_vel,Ball2_vel], [yRising,yFalling,yEither], [Noise,Noise_Filt,Noise_Filt_Sat,Sine,Sine_Filt,Sine_Filt_Quantized]
 errorsDS = [[0.000005, 0.0005, 0.0005, 0.0005, 0.0005], [0.000005, 5e-6, 5e-6, 5e-6], [0.000005, 9, 3.1, 1, 0.00005, 0.00005, 0.11], [0.02, 1, 3]]
@@ -36,13 +36,12 @@ end
 for type in modeltype
     for vendor in vendors
         maxerror = []
-        if vendor == "CATIA/R2016x" || vendor == "Dymola/2019FD01"
+        if vendor == "CATIA/R2016x"
             FMUs = ["MixtureGases", "ControlledTemperature", "CoupledClutches"]
-            if vendor == "CATIA/R2016x"
-                maxerror = errorsCATIA
-            else
-                maxerror = errorsDymola
-            end
+            maxerror = errorsCATIA
+        elseif  vendor == "Dymola/2019FD01"
+            FMUs = ["MixtureGases", "ControlledTemperature", "CoupledClutches", "fullRobot"]
+            maxerror = errorsDymola
         elseif vendor == "DS_FMU_Export_from_Simulink/2.3.0"
             FMUs = ["BouncingBalls_sf", "TriggeredSubsystems_sf", "TestModel1_sf", "TestModel2_sf"]
             maxerror = errorsDS
